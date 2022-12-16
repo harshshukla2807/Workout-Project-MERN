@@ -19,7 +19,7 @@ const WorkoutForm=()=>{
                  'Content-type':'application/json'
              }
          })
-         console.log(response)
+        //  console.log(response)
          const json= await response.json();
          
          if(!response.ok){
