@@ -26,6 +26,25 @@ const singleWorkout=async (req,res)=>{
 const createWorkout = async (req,res)=>{
     const {title,load,reps}=req.body
     
+    const emptyFields=[]
+    
+    if(!title)
+    {
+        emptyFields.push("title")
+    }
+    if(!load)
+    {
+        emptyFields.push("load")
+    }
+    if(!reps)
+    {
+        emptyFields.push("reps")
+    }
+    
+    if(emptyFields.length>0)
+    {
+        res.status(404).json({error: "Please fill in all the details",emptyFields})
+    }
     // add doc to db
     try{
         const workout = await Workout.create({title,load ,reps})
