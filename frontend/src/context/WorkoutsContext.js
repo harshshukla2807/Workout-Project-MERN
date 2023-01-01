@@ -22,9 +22,15 @@ export const workoutsReducer = (state, action) => {
 }
  
 export const WorkoutsContextProvider = ({ children }) => {
+  // const [workouts,setWorkouts]=useState({workouts:null})
+  // const [workouts,createWorkouts]=useState({workouts:null})
+  // const [workouts,deleteWorkouts]=useState({workouts:null})
+  
   const [state, dispatch] = useReducer(workoutsReducer, { 
     workouts: null
   })
+  // how to do this with useState
+  
   
   return (
     <WorkoutsContext.Provider value={{ ...state, dispatch }}>
